@@ -1,5 +1,13 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 
-const AddUser = () => <div>AddUser</div>;
+const AddUser = ({ user }) =>
+  !user ? <Redirect to="/" /> : <div>AddUser</div>;
 
-export default AddUser;
+export default connect(
+  state => ({
+    user: state.user
+  }),
+  undefined
+)(AddUser);

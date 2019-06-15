@@ -1,7 +1,15 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 
 import AppRouter from './AppRouter';
+import configureStore from '../store/configureStore';
 
-const App = () => <AppRouter />;
+const store = configureStore();
+
+const App = () => (
+  <Provider store={store}>
+    <AppRouter />
+  </Provider>
+);
 
 export default App;
