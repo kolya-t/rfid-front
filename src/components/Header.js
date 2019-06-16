@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { logout as action } from '../actions/userActions';
+import { logout as action } from '../actions/loginActions';
 
 const Header = ({ isLogged, logout }) =>
   isLogged && (

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
-import { login } from '../../actions/userActions';
+import { login } from '../../actions/loginActions';
 
 class IndexPage extends Component {
   constructor(props) {

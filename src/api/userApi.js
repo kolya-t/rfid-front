@@ -11,6 +11,17 @@ class UserApi {
       })
       .then(response => response.data)
       .catch(() => null);
+
+  static getUsers = cardNumber =>
+    http
+      .get('/users', {
+        auth: {
+          username: cardNumber,
+          password: cardNumber
+        }
+      })
+      .then(response => response.data)
+      .catch(() => []);
 }
 
 export default UserApi;
