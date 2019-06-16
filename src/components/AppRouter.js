@@ -1,22 +1,24 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import Index from './Index';
-import UserList from './UserList';
-import AddUser from './AddUser';
-import UserInfo from './UserInfo';
-import Report from './Report';
-import NotFound from './NotFound';
+import Header from './Header';
+import IndexPage from './pages/IndexPage';
+import UserListPage from './pages/UserListPage';
+import AddUserPage from './pages/AddUserPage';
+import UserInfoPage from './pages/UserInfoPage';
+import ReportPage from './pages/ReportPage';
+import NotFoundPage from './pages/NotFoundPage';
 
 const AppRouter = () => (
   <Router>
+    <Header />
     <Switch>
-      <Route exact path="/" component={Index} />
-      <Route path="/user-list" component={UserList} />
-      <Route path="/add-user" component={AddUser} />
-      <Route path="/user/:id" component={UserInfo} />
-      <Route path="/report" component={Report} />
-      <Route path="/" component={NotFound} />
+      <Route exact path="/" component={IndexPage} />
+      <Route path="/user-list" component={UserListPage} />
+      <Route path="/add-user" component={AddUserPage} />
+      <Route path="/user/:id" component={UserInfoPage} />
+      <Route path="/report" component={ReportPage} />
+      <Route path="/" component={NotFoundPage} />
     </Switch>
   </Router>
 );

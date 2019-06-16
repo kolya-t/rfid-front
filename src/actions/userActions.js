@@ -1,7 +1,9 @@
-import { LOAD_USER_SUCCESS } from './actionTypes';
+import { LOGIN_SUCCESS, LOGOUT_SUCCESS } from './actionTypes';
 import userApi from '../api/userApi';
 
-export const loadUserSuccess = user => ({ type: LOAD_USER_SUCCESS, user });
+export const loginSuccess = user => ({ type: LOGIN_SUCCESS, user });
+export const logoutSuccess = () => ({ type: LOGOUT_SUCCESS });
 
-export const loadUser = cardNumber => dispatch =>
-  userApi.getUser(cardNumber).then(user => dispatch(loadUserSuccess(user)));
+export const login = cardNumber => dispatch =>
+  userApi.getUser(cardNumber).then(user => dispatch(loginSuccess(user)));
+export const logout = () => dispatch => dispatch(logoutSuccess());

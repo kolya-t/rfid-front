@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
-import { loadUser } from '../actions/userActions';
+import { login } from '../../actions/userActions';
 
-class Index extends Component {
+class IndexPage extends Component {
   constructor(props) {
     super(props);
 
@@ -57,6 +57,6 @@ export default connect(
     user: state.user
   }),
   dispatch => ({
-    load: cardNumber => dispatch(loadUser(cardNumber))
+    load: cardNumber => dispatch(login(cardNumber))
   })
-)(Index);
+)(IndexPage);
