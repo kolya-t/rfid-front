@@ -1,6 +1,6 @@
-import React, { PureComponent } from 'react';
+import React, { Fragment, PureComponent } from 'react';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 
 import { getUsers as action } from '../../actions/usersActions';
 import UsersTable from '../UsersTable';
@@ -12,19 +12,25 @@ class UserListPage extends PureComponent {
   }
 
   render() {
-    const { isLogged, users } = this.props;
+    const { isLogged, isAdmin, users } = this.props;
 
     if (!isLogged) {
       return <Redirect to="/" />;
     }
 
-    return <UsersTable users={users} />;
+    return (
+      <Fragment>
+        <UsersTable users={users} />
+        {isAdmin && <Link to="/add-user">Добавить работника</Link>}
+      </Fragment>
+    );
   }
 }
 
 export default connect(
   state => ({
-    isLogged: !!state.user,
+    isLogged: Object.entries(state.user).length !== 0,
+    isAdmin: state.user.isAdmin,
     users: state.users
   }),
   dispatch => ({

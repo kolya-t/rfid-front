@@ -1,4 +1,5 @@
 import http from '../http';
+import initialState from '../reducers/initialState';
 
 class UserApi {
   static getUser = cardNumber =>
@@ -10,7 +11,7 @@ class UserApi {
         }
       })
       .then(response => response.data)
-      .catch(() => null);
+      .catch(() => initialState.user);
 
   static getUsers = cardNumber =>
     http
@@ -21,7 +22,7 @@ class UserApi {
         }
       })
       .then(response => response.data)
-      .catch(() => []);
+      .catch(() => initialState.users);
 }
 
 export default UserApi;

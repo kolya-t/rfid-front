@@ -14,7 +14,7 @@ const Header = ({ isLogged, logout }) =>
 
 export default connect(
   state => ({
-    isLogged: !!state.user
+    isLogged: Object.entries(state.user).length !== 0
   }),
   dispatch => ({
     logout: () => dispatch(action())

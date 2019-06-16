@@ -28,9 +28,9 @@ class IndexPage extends Component {
 
   render() {
     const { cardNumber, message } = this.state;
-    const { user } = this.props;
+    const { isLogged } = this.props;
 
-    if (user) {
+    if (isLogged) {
       return <Redirect to="/user-list" />;
     }
 
@@ -54,7 +54,7 @@ class IndexPage extends Component {
 
 export default connect(
   state => ({
-    user: state.user
+    isLogged: Object.entries(state.user).length !== 0
   }),
   dispatch => ({
     load: cardNumber => dispatch(login(cardNumber))
