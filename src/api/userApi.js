@@ -23,6 +23,17 @@ class UserApi {
       })
       .then(response => response.data)
       .catch(() => initialState.users);
+
+  static postUser = (cardNumber, user) =>
+    http
+      .post('/users', user, {
+        auth: {
+          username: cardNumber,
+          password: cardNumber
+        }
+      })
+      .then(response => response.data)
+      .catch(() => {});
 }
 
 export default UserApi;
